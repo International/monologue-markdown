@@ -5,7 +5,7 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 # gem "deface"
 # gem "monologue", :path => "/Users/jipiboily/code/monologue"
-gem "monologue", :git => "git@github.com:jipiboily/monologue.git"
+gem "monologue", :github => "jipiboily/monologue", :tag => "0.2.0"
 gemspec
 
 
