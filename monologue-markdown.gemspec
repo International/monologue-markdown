@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "redcarpet"
   s.add_dependency "jquery-rails"
   s.add_dependency "bcrypt-ruby",'~> 3.0.0'
+  s.add_dependency "coderay"
 
 
   s.add_development_dependency "rspec-rails", "~> 2.11"

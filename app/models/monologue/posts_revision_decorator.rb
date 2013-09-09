@@ -13,10 +13,21 @@ Monologue::PostsRevision.class_eval do
 
   def content
     if self.is_markdown? && !in_admin?(caller)
-      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
-      return markdown.render(read_attribute(:content))
+      rnd = MonologueMarkdown::HelloLight.new(
+        :filter_html => true, 
+        :hard_wrap => true)
+      options = {
+        :fenced_code_blocks => true,
+        :no_intra_emphasis => true,
+        :autolink => true,
+        :strikethrough => true,
+        :lax_html_blocks => true,
+        :superscript => true
+      }
+      return Redcarpet::Markdown.new(rnd, options).render(read_attribute(:content)).html_safe
+    else
+      read_attribute(:content)
     end
-    read_attribute(:content)
   end
 
   def in_admin? caller
